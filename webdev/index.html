@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Tanish Chavan | Portfolio</title>
+
+<style>
+  /* Reset & base */
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  body {
+    background: #000; /* black */
+    color: #fff;
+    line-height: 1.5;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  a {
+    color: #ffdd00;
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+
+  /* Container */
+  .container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 20px;
+    flex-grow: 1;
+  }
+
+  /* Header & Nav */
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background: #111;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 2px solid #ffdd00;
+  }
+
+  .logo {
+    font-weight: 900;
+    font-size: 1.8rem;
+    color: #ffdd00;
+    letter-spacing: 2px;
+    cursor: pointer;
+  }
+
+  nav {
+    display: flex;
+    gap: 25px;
+  }
+
+  nav a {
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+
+  nav a:hover {
+    color: #fff;
+  }
+
+  /* Hamburger Menu */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+  }
+
+  .hamburger div {
+    width: 25px;
+    height: 3px;
+    background: #ffdd00;
+    border-radius: 2px;
+  }
+
+  /* Sections */
+  section {
+    margin: 60px 0;
+  }
+
+  /* About Section */
+  #about {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  #about .profile-pic {
+    flex: 1 1 250px;
+    max-width: 250px;
+    border: 4px solid #ffdd00;
+    border-radius: 20px;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0 0 15px #ffdd00aa;
+    transition: transform 0.3s ease;
+  }
+  #about .profile-pic:hover {
+    transform: scale(1.05);
+  }
+  #about .profile-pic img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  #about .about-text {
+    flex: 2 1 500px;
+    color: #fff;
+  }
+  #about .about-text h2 {
+    color: #ffdd00;
+    margin-bottom: 10px;
+    font-size: 2rem;
+  }
+  #about .about-text p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+  }
+
+  /* Download CV Button */
+  #download-cv {
+    margin-top: 25px;
+    display: inline-block;
+    padding: 12px 25px;
+    background: #ffdd00;
+    color: #000;
+    font-weight: 700;
+    font-size: 1.1rem;
+    border-radius: 40px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    user-select: none;
+    border: none;
+  }
+  #download-cv:hover {
+    background: #e6c800;
+  }
+
+  /* Section Titles */
+  h2.section-title {
+    font-size: 2rem;
+    font-weight: 900;
+    color: #ffdd00;
+    margin-bottom: 15px;
+    border-bottom: 3px solid #ffdd00;
+    padding-bottom: 8px;
+    letter-spacing: 1.5px;
+  }
+
+  /* Projects Section */
+  #projects .project-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+    gap: 20px;
+  }
+
+  #projects .project-card {
+    background: #111;
+    border: 2px solid #ffdd00;
+    padding: 20px;
+    border-radius: 16px;
+    box-shadow: 0 0 10px #ffdd00aa;
+    transition: transform 0.3s ease;
+  }
+  #projects .project-card:hover {
+    transform: translateY(-6px);
+  }
+  #projects .project-card h3 {
+    color: #ffdd00;
+    margin-bottom: 10px;
+  }
+  #projects .project-card p {
+    margin-bottom: 10px;
+    font-size: 1rem;
+    color: #ddd;
+  }
+  #projects progress {
+    width: 100%;
+    height: 12px;
+    border-radius: 8px;
+    appearance: none;
+    overflow: hidden;
+  }
+  #projects progress::-webkit-progress-bar {
+    background-color: #222;
+    border-radius: 8px;
+  }
+  #projects progress::-webkit-progress-value {
+    background-color: #ffdd00;
+    border-radius: 8px;
+  }
+
+  /* Blogs Section */
+  #blogs p {
+    font-size: 1.1rem;
+    color: #eee;
+  }
+
+  /* Contact Section */
+  #contact form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 500px;
+  }
+  #contact label {
+    font-weight: 600;
+    color: #ffdd00;
+  }
+  #contact input,
+  #contact select,
+  #contact textarea {
+    padding: 10px 15px;
+    border-radius: 8px;
+    border: 2px solid #ffdd00;
+    background: #111;
+    color: #fff;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+    resize: vertical;
+  }
+  #contact input:focus,
+  #contact select:focus,
+  #contact textarea:focus {
+    outline: none;
+    border-color: #fff;
+  }
+  #contact button {
+    padding: 12px 25px;
+    background: #ffdd00;
+    color: #000;
+    font-weight: 700;
+    font-size: 1.1rem;
+    border-radius: 40px;
+    cursor: pointer;
+    border: none;
+    transition: background 0.3s ease;
+  }
+  #contact button:hover {
+    background: #e6c800;
+  }
+
+  /* Modal */
+  .modal-bg {
+    position: fixed;
+    top: 0; left: 0; right:0; bottom: 0;
+    background: rgba(0,0,0,0.85);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+  .modal-bg.active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .modal-content {
+    background: #111;
+    padding: 20px;
+    border: 2px solid #ffdd00;
+    border-radius: 20px;
+    max-width: 350px;
+    max-height: 400px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 0 20px #ffdd00aa;
+  }
+  .modal-content img {
+    width: 100%;
+    border-radius: 16px;
+    user-select: none;
+  }
+  .modal-close {
+    position: absolute;
+    top: 8px;
+    right: 12px;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #ffdd00;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  /* Hamburger Menu Responsive */
+  @media (max-width: 900px) {
+    nav {
+      position: fixed;
+      top: 68px;
+      right: 0;
+      background: #111;
+      flex-direction: column;
+      width: 200px;
+      padding: 20px;
+      height: calc(100vh - 68px);
+      transform: translateX(100%);
+      transition: transform 0.3s ease;
+      border-left: 3px solid #ffdd00;
+      gap: 20px;
+      z-index: 1000;
+    }
+    nav.open {
+      transform: translateX(0);
+    }
+    .hamburger {
+      display: flex;
+    }
+  }
+
+  /* Smaller screens */
+  @media (max-width: 600px) {
+    #about {
+      flex-direction: column;
+      text-align: center;
+    }
+    #about .about-text {
+      flex: none;
+      max-width: 100%;
+    }
+    #projects .project-list {
+      grid-template-columns: 1fr;
+    }
+    #contact form {
+      max-width: 100%;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">Tanish Chavan</div>
+  <nav id="nav-links">
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#blogs">Blogs</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <div class="hamburger" id="hamburger">
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+</header>
+
+<div class="container">
+  <!-- About Section -->
+  <section id="about">
+    <div class="profile-pic" id="profile-pic">
+      <img src="https://i.pravatar.cc/300?img=7" alt="Tanish Chavan" />
+    </div>
+    <div class="about-text">
+      <h2>About Me</h2>
+      <p>
+        Hey dawg! I’m Tanish Chavan, a 20-year-old BTech CSE third-year student, 
+        obsessed with travel, fashion, perfumes, and all things fly. NBA fan, 
+        love bikes & cars, and vibin’ to Rihanna, Kendrick, and Eminem. Currently 
+        grinding on DSA, ML, full-stack, and Java — figuring out the path one step 
+        at a time.
+      </p>
+      <button id="download-cv">Download CV</button>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects">
+    <h2 class="section-title">Projects</h2>
+    <div class="project-list">
+      <div class="project-card">
+        <h3>Full Stack Portfolio</h3>
+        <p>A sleek, responsive portfolio site with modern UX & design.</p>
+        <progress value="80" max="100"></progress>
+      </div>
+      <div class="project-card">
+        <h3>DSA Practice</h3>
+        <p>Problem solving and algorithm implementation in C++ and Java.</p>
+        <progress value="65" max="100"></progress>
+      </div>
+      <div class="project-card">
+        <h3>ML Image Classifier</h3>
+        <p>Python project using OpenCV and machine learning for image recognition.</p>
+        <progress value="50" max="100"></progress>
+      </div>
+    </div>
+  </section>
+
+  <!-- Blogs Section -->
+  <section id="blogs">
+    <h2 class="section-title">Blogs</h2>
+    <p>Coming soon... Stay tuned for my takes on coding, tech, and life!</p>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <h2 class="section-title">Contact Me</h2>
+    <form id="contact-form" action="mailto:tanish@example.com" method="POST" enctype="text/plain">
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" required placeholder="Your name" />
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required placeholder="Your email" />
+      <label for="message">Message</label>
+      <textarea id="message" name="message" rows="5" required placeholder="Write something cool..."></textarea>
+      <button type="submit">Send</button>
+    </form>
+  </section>
+</div>
+
+<!-- Profile Pic Modal -->
+<div class="modal-bg" id="modal">
+  <div class="modal-content">
+    <span class="modal-close" id="modal-close">&times;</span>
+    <img src="https://i.pravatar.cc/500?img=7" alt="Tanish Chavan" />
+  </div>
+</div>
+
+<script>
+  // Hamburger menu toggle
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('nav-links');
+
+  hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('open');
+  });
+
+  // Close nav menu on link click (for mobile)
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+    });
+  });
+
+  // Profile pic modal open & close
+  const profilePic = document.getElementById('profile-pic');
+  const modal = document.getElementById('modal');
+  const modalClose = document.getElementById('modal-close');
+
+  profilePic.addEventListener('click', () => {
+    modal.classList.add('active');
+  });
+  modalClose.addEventListener('click', () => {
+    modal.classList.remove('active');
+  });
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) modal.classList.remove('active');
+  });
+
+  // Download CV Button - triggers file download
+  const downloadBtn = document.getElementById('download-cv');
+  downloadBtn.addEventListener('click', () => {
+    // Replace this URL with your actual CV file URL or data URI
+    const cvUrl = 'https://yourdomain.com/TanishChavan_CV.pdf';
+
+    // Create invisible anchor and click to download
+    const a = document.createElement('a');
+    a.href = cvUrl;
+    a.download = 'TanishChavan_CV.pdf';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,115 @@
+/* Reset + Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #0f172a;
+  color: #f1f5f9;
+  line-height: 1.6;
+  padding: 20px;
+}
+
+a {
+  color: #38bdf8;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Header */
+header {
+  text-align: center;
+  padding: 60px 20px 30px;
+  background-color: #1e293b;
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.4);
+  margin-bottom: 40px;
+}
+
+header h1 {
+  font-size: 3rem;
+  color: #facc15;
+}
+
+header p {
+  font-size: 1.2rem;
+  margin-top: 10px;
+}
+
+/* Sections */
+section {
+  margin-bottom: 40px;
+  padding: 20px;
+  background-color: #1e293b;
+  border-radius: 12px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+}
+
+section h2 {
+  font-size: 2rem;
+  color: #7dd3fc;
+  margin-bottom: 15px;
+}
+
+/* Projects */
+.project {
+  margin-bottom: 15px;
+  padding: 10px;
+  background-color: #334155;
+  border-radius: 8px;
+}
+
+/* Skills List */
+#skills ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+#skills li {
+  background-color: #475569;
+  padding: 8px 12px;
+  border-radius: 6px;
+}
+
+/* Contact */
+#contact p {
+  margin: 10px 0;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px 0;
+  font-size: 0.9rem;
+  color: #94a3b8;
+  margin-top: 40px;
+}
+/* Light Mode Styles */
+body.light-mode {
+  background-color: #f1f5f9;
+  color: #0f172a;
+}
+
+body.light-mode header,
+body.light-mode section {
+  background-color: #e2e8f0;
+  color: #0f172a;
+}
+
+body.light-mode .project,
+body.light-mode #skills li {
+  background-color: #cbd5e1;
+}
+
+body.light-mode footer {
+  color: #475569;
+}
+
