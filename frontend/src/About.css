@@ -1,0 +1,143 @@
+.about-container {
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 0 20px;
+  color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #121212; /* dark bg to make it pop */
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+  text-align: center;
+}
+
+.intro-typewriter h1 {
+  font-size: 3rem;
+  font-weight: 900;
+  letter-spacing: 2px;
+  margin-bottom: 30px;
+  color: #FFD700; /* golden vibe */
+  min-height: 4rem; /* keep space so no jump */
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.profile-pic-wrapper {
+  margin: 0 auto 30px auto;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 5px solid #FFD700;
+
+  /* Simplified and softened glow */
+  box-shadow:
+    0 0 8px 3px #FFD70099,
+    0 0 15px 6px #FFD70066;
+  background-color: #000; /* helps fill empty transparent gaps */
+}
+
+.profile-pic {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  /* prevent weird scaling issues */
+  border-radius: 50%; /* clip corners even if image tries to overflow */
+}
+
+
+.about-text {
+  text-align: left;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: white;
+  font-weight: 400;
+}
+.download-cv-wrapper {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.download-cv-btn {
+  position: relative;
+  display: inline-block;
+  padding: 18px 50px;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: white;
+  background-color: #FFD700; /* Yellow background */
+  text-decoration: none;
+  border-radius: 50px;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(255, 215, 0, 0.5);
+  border: 3px dotted black;
+  transition: color 0.3s ease;
+}
+
+.download-cv-btn:hover {
+  color: #222;
+  background-color: #ffec5c;
+}
+
+.download-cv-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 200%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    90deg,
+    black 0,
+    black 2px,
+    transparent 4px,
+    transparent 6px
+  );
+  animation: dots-move 3s linear infinite;
+  pointer-events: none;
+  border-radius: 50px;
+  z-index: 0;
+  mix-blend-mode: multiply;
+}
+
+.download-cv-btn > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Animation for dots */
+@keyframes dots-move {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(50%);
+  }
+}
+.social-link {
+  font-size: 22px;
+  color: #444;
+  text-decoration: none;
+  padding: 6px 8px;
+  border-radius: 6px;
+  transition: color 0.3s, background-color 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.social-link:hover {
+  color: #0a66c2; /* LinkedIn blue for all, can customize if you want */
+  background-color: #e0e7ff;
+  cursor: pointer;
+}
+.download-cv-wrapper {
+  margin-top: 40px;
+  text-align: center;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+

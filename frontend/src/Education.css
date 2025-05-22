@@ -1,0 +1,72 @@
+.education-container {
+  background-color: #000; /* Black background */
+  padding: 40px 20px;
+  max-width: 800px;
+  margin: 0 auto;
+  color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.timeline {
+  position: relative;
+  padding-left: 40px; /* More room for content */
+  border-left: 3px solid #FFD700;
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 40px;
+  padding-left: 20px; /* Ensures text doesn't touch the line */
+}
+
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: -31px; /* Adjusted to center dot on the yellow line */
+  top: 5px;
+  width: 16px;
+  height: 16px;
+  background-color: #FFD700;
+  border-radius: 50%;
+  border: 3px solid #000;
+}
+
+.degree-name {
+  font-weight: 700;
+  font-size: 1.3rem;
+  color: white;
+  margin-bottom: 5px;
+}
+
+.college-name,
+.year {
+  font-size: 0.95rem;
+  font-style: italic;
+  color: white;
+  margin: 2px 0;
+}
+
+/* Optional: Responsive Tweaks */
+@media screen and (max-width: 600px) {
+  .education-container {
+    padding: 30px 15px;
+  }
+
+  .timeline {
+    padding-left: 30px;
+  }
+
+  .timeline-item {
+    padding-left: 15px;
+  }
+
+  .timeline-item::before {
+    left: -26px;
+    width: 14px;
+    height: 14px;
+  }
+
+  .degree-name {
+    font-size: 1.1rem;
+  }
+}

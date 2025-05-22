@@ -1,0 +1,139 @@
+.work-experience-section {
+  width: 100%;
+  max-width: 1500px;
+  margin: 50px auto;
+  position: relative;
+  font-family: Arial, sans-serif;
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.cards-container {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  gap: 20px;
+  padding-bottom: 15px;
+  scrollbar-width: thin;
+  scrollbar-color: #5a67d8cc #f0f0f0;
+}
+
+/* For Webkit browsers */
+.cards-container::-webkit-scrollbar {
+  height: 8px;
+}
+.cards-container::-webkit-scrollbar-thumb {
+  background: #5a67d8cc;
+  border-radius: 4px;
+}
+.cards-container::-webkit-scrollbar-track {
+  background: #f0f0f0;
+  border-radius: 4px;
+}
+
+.project-card {
+  flex: 0 0 calc((100% - 80px) / 5); /* 5 cards max with gaps */
+  background: #f9f9ff;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgb(90 103 216 / 0.2);
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.3s ease;
+  cursor: grab;
+}
+
+.project-card:hover {
+  transform: scale(1.05);
+}
+
+.project-image {
+  width: 100%;
+  height: 120px;
+  border-radius: 8px;
+  object-fit: cover;
+  margin-bottom: 12px;
+}
+
+.project-name {
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+  text-align: center;
+  color:red;
+}
+
+.project-description {
+  font-size: 0.85rem;
+  color: #555;
+  text-align: center;
+  flex-grow: 1;
+}
+
+.project-link {
+  margin-top: 12px;
+  padding: 8px 16px;
+  background-color: #5a67d8;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+.project-link:hover {
+  background-color: #4c54c9;
+}
+
+/* Arrows */
+.arrow-btn {
+  position: absolute;
+  top: 45%;
+  background: #5a67d8cc;
+  border: none;
+  color: white;
+  font-size: 2rem;
+  padding: 10px 14px;
+  border-radius: 50%;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.3s ease;
+  z-index: 10;
+}
+.arrow-btn:hover {
+  background: #4c54c9;
+}
+
+.arrow-left {
+  left: -40px;
+}
+
+.arrow-right {
+  right: -40px;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .project-card {
+    flex: 0 0 80%;
+  }
+  .arrow-left,
+  .arrow-right {
+    top: 40%;
+    font-size: 1.5rem;
+    padding: 8px 12px;
+    left: 5px;
+    right: 5px;
+  }
+  .arrow-left {
+    left: 5px;
+  }
+  .arrow-right {
+    right: 5px;
+  }
+}

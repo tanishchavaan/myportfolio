@@ -1,0 +1,369 @@
+/* Reset + Base */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background: #000;
+  color: #fff;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* HEADER */
+.header {
+  position: sticky;
+  top: 0;
+  background: linear-gradient(90deg, #ffdd00, #222);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  z-index: 100;
+  box-shadow: 0 2px 5px #ffdd0033;
+}
+
+.logo {
+  font-weight: 900;
+  font-size: 1.5rem;
+  color: #000;
+  letter-spacing: 2px;
+  user-select: none;
+}
+
+.nav {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav a {
+  color: #000;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 1px;
+  transition: color 0.3s ease;
+}
+
+.nav a:hover {
+  color: #ffdd00;
+}
+
+/* Hamburger */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+.hamburger {
+  width: 25px;
+  height: 3px;
+  background: #000;
+  margin: 4px 0;
+  border-radius: 2px;
+  transition: 0.3s ease;
+}
+
+/* Show nav in mobile */
+.nav-open {
+  position: fixed;
+  top: 60px;
+  right: 0;
+  background: #111;
+  height: calc(100% - 60px);
+  width: 200px;
+  flex-direction: column;
+  padding: 1rem;
+  box-shadow: -3px 0 6px #ffdd00cc;
+}
+
+.nav-open a {
+  padding: 1rem 0;
+  border-bottom: 1px solid #333;
+}
+
+/* MAIN */
+main {
+  flex: 1;
+  max-width: 900px;
+  margin: 3rem auto;
+  padding: 0 1rem;
+  scroll-behavior: smooth;
+}
+
+section {
+  margin-bottom: 5rem;
+  /*border-left: 4px solid #ffdd00;*/
+  padding-left: 1rem;
+}
+
+h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  color: #ffdd00;
+}
+
+
+/* BLOGS */
+.blogs-container {
+  font-style: italic;
+  color: #ccc;
+  padding: 1rem;
+  background: #111;
+  border-radius: 15px;
+  box-shadow: 0 0 15px #ffdd0033;
+}
+
+/* CONTACT */
+.contact-container {
+  max-width: 600px;
+  margin: auto;
+  background: #111;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 0 25px #ffdd00bb;
+}
+
+.contact-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.contact-container input,
+.contact-container select,
+.contact-container textarea {
+  padding: 0.8rem;
+  border-radius: 10px;
+  border: none;
+  font-size: 1rem;
+  font-family: inherit;
+  resize: vertical;
+  background: #222;
+  color: #fff;
+  transition: background 0.3s ease;
+}
+
+.contact-container input:focus,
+.contact-container select:focus,
+.contact-container textarea:focus {
+  background: #333;
+  outline: none;
+}
+
+.contact-container button {
+  padding: 0.9rem 0;
+  background: #ffdd00;
+  border: none;
+  font-weight: 700;
+  font-size: 1.1rem;
+  cursor: pointer;
+  border-radius: 50px;
+  transition: background 0.3s ease;
+  color: #000;
+}
+
+.contact-container button:hover {
+  background: #f9d500cc;
+}
+
+/* FOOTER */
+footer {
+  padding: 1rem;
+  text-align: center;
+  background: #111;
+  color: #aaa;
+  font-size: 0.9rem;
+  user-select: none;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .nav {
+    display: none;
+  }
+  .nav-toggle {
+    display: flex;
+  }
+
+  main {
+    margin: 2rem 1rem;
+  }
+
+  .about-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .about-text {
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  h2 {
+    font-size: 2rem;
+  }
+
+  .download-cv-btn {
+    width: 100%;
+  }
+}
+/* Fade-in on scroll */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Button hover */
+button:hover {
+  background-color: #f9d500cc;
+  transform: scale(1.05);
+  transition: all 0.3s ease;
+}
+
+/* Hamburger toggle */
+.nav-toggle.open .bar {
+  transform: rotate(45deg);
+}
+.about-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.profile-pic-wrapper {
+  position: relative;
+  cursor: pointer;
+  margin-bottom: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.profile-pic-wrapper:hover {
+  transform: scale(1.05);
+}
+
+.profile-pic {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #00f2fe;
+  box-shadow: 0 4px 12px rgba(0, 242, 254, 0.3);
+}
+
+.click-hint {
+  font-size: 0.9rem;
+  color: #aaa;
+  margin-top: 0.3rem;
+  font-style: italic;
+}
+
+/* Popup styles */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.3s ease-in-out;
+  z-index: 1000;
+}
+
+.popup-content {
+  position: relative;
+  background: #1a1a1a;
+  padding: 1.5rem;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(0, 242, 254, 0.3);
+  animation: scaleUp 0.3s ease-in-out;
+}
+
+.popup-pic {
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #00f2fe;
+}
+
+.close-btn {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background: #00f2fe;
+  color: black;
+  border: none;
+  border-radius: 50%;
+  font-size: 1.4rem;
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* Text section */
+.about-text {
+  text-align: center;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+
+.typewriter {
+  font-family: "Courier New", monospace;
+  font-size: 1rem;
+  color: #fff;
+  margin-top: 1rem;
+}
+
+/* Download Button */
+.download-cv-btn {
+  margin-top: 1.5rem;
+  padding: 0.7rem 1.2rem;
+  background-color: #00f2fe;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.download-cv-btn a {
+  color: black;
+  text-decoration: none;
+}
+
+.download-cv-btn:hover {
+  background-color: #0df;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleUp {
+  from { transform: scale(0.85); opacity: 0.6; }
+  to { transform: scale(1); opacity: 1; }
+}
